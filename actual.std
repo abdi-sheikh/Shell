@@ -1,0 +1,15 @@
+@> @> @> @> @> @> Top of fetch
+top of read
+bottom of read
+Top of fetch
+top of read
+bottom of read
+@> JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    %1           0    EXIT(0)    0rm
+1    %1           0    EXIT(0)    0-f
+2    %1           0    EXIT(0)    0./test_args
+@> ./test_args[20001]
+@> Im not here
+ALERTS:
+@!!! ./test_args[%0]: EXIT(0)
+@!!! rm[%1]: EXIT(0)

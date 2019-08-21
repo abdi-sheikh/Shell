@@ -1,0 +1,32 @@
+@> rm -f ./test_args
+@> wait-for 0
+@> gcc -o test_args ./test_args.c
+@> wait-for 1
+@> ./test_args hello goodbye so long
+@> wait-for 2
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    %0           0    EXIT(0)    0 rm -f ./test_args 
+1    %1           0    EXIT(0)    0 gcc -o test_args ./test_args.c 
+2    %2           5    EXIT(5)   65 ./test_args hello goodbye so long 
+@> output-all
+@<<< Output for rm[%0] (0 bytes):
+----------------------------------------
+----------------------------------------
+@<<< Output for gcc[%1] (0 bytes):
+----------------------------------------
+----------------------------------------
+@<<< Output for ./test_args[%2] (65 bytes):
+----------------------------------------
+5 args received
+0: ./test_args
+1: hello
+2: goodbye
+3: so
+4: long
+----------------------------------------
+@> exit
+ALERTS:
+@!!! rm[%0]: EXIT(0)
+@!!! gcc[%1]: EXIT(0)
+@!!! ./test_args[%2]: EXIT(5)
